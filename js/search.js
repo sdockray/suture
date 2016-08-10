@@ -1,7 +1,7 @@
 (function($) {
 	/* */
 	var SCANR_DEFAULTS = {
-		basepath: 'http://aaaaarg.fail/',
+		basepath: '',
 		n_results: 10,
 		th_w: 40,
 		th_h: 50,
