@@ -87,11 +87,28 @@
     this.$button = document.getElementById(button_id);
 
     this.$button.onclick = this._handle_button.bind(this);
+    this.$search.onkeyup = this._handle_key_up.bind(this);
+    this.$search.onkeydown = this._handle_key_down.bind(this);
 	}  
 
 	  /* execute a search */
   $.Searcher.prototype._handle_button = function() {
 		this.search();
+	}
+
+	  /* checks if enter, then execute a search */
+  $.Searcher.prototype._handle_key_up = function(ev) {
+  	ev.preventDefault();
+  	if (ev.keyCode == 13) {
+        this.$button.click();
+    }
+	}
+
+  /* ignores enter key */
+  $.Searcher.prototype._handle_key_down = function(ev) {
+  	if (ev.keyCode == 13) {
+        return false;
+    }
 	}
 
   /* execute a search */
